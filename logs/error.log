@@ -1,0 +1,396 @@
+[2026-03-09 11:47:50] [31merror[39m: LOGIN ERROR: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+    at $n.handleRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:18
+[2026-03-09 11:48:01] [31merror[39m: LOGIN ERROR: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+    at $n.handleRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:18
+[2026-03-09 11:48:02] [31merror[39m: LOGIN ERROR: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+    at $n.handleRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:18
+[2026-03-09 11:48:02] [31merror[39m: LOGIN ERROR: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+    at $n.handleRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:18
+[2026-03-09 11:48:03] [31merror[39m: LOGIN ERROR: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+    at $n.handleRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:18
+[2026-03-09 11:48:03] [31merror[39m: LOGIN ERROR: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+    at $n.handleRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:18
+[2026-03-09 11:48:03] [31merror[39m: LOGIN ERROR: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+    at $n.handleRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:18
+[2026-03-09 11:48:04] [31merror[39m: LOGIN ERROR: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:36
+
+  149 
+  150 const { email, password } = req.body
+  151 
+→ 152 const user = await prisma.user.findUnique(
+The column `User.emailVerified` does not exist in the current database.
+    at $n.handleRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async C:\Website-Projects\dse-originals\server\src\modules\auth\auth.routes.js:152:18
+[2026-03-12 09:15:03] [31merror[39m: Order expiration worker failed
+[2026-03-13 09:17:22] [31merror[39m: Unhandled error
+[2026-03-13 09:18:38] [31merror[39m: REGISTER ERROR: 
+Invalid `prisma.user.create()` invocation:
+
+{
+  data: {
+    name: "Jobert Icalina",
+    ~~~~
+    email: "icalina.jobert@dnsc.edu.ph",
+    password: "$2b$10$ZdbxoN5PmPnG9hA9LyZ34uLjI4Qt1P52hhWKqie/jW4h6Z49EN0B.",
+    role: "customer",
+    luckyPoints: 0,
+?   id?: String,
+?   emailVerified?: Boolean,
+?   createdAt?: DateTime,
+?   carts?: CartCreateNestedManyWithoutUserInput,
+?   orders?: OrderCreateNestedManyWithoutUserInput,
+?   refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput,
+?   stories?: StoryCreateNestedManyWithoutUserInput
+  }
+}
+
+Unknown argument `name`. Did you mean `role`? Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.user.create()` invocation:
+
+{
+  data: {
+    name: "Jobert Icalina",
+    ~~~~
+    email: "icalina.jobert@dnsc.edu.ph",
+    password: "$2b$10$ZdbxoN5PmPnG9hA9LyZ34uLjI4Qt1P52hhWKqie/jW4h6Z49EN0B.",
+    role: "customer",
+    luckyPoints: 0,
+?   id?: String,
+?   emailVerified?: Boolean,
+?   createdAt?: DateTime,
+?   carts?: CartCreateNestedManyWithoutUserInput,
+?   orders?: OrderCreateNestedManyWithoutUserInput,
+?   refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput,
+?   stories?: StoryCreateNestedManyWithoutUserInput
+  }
+}
+
+Unknown argument `name`. Did you mean `role`? Available options are marked with ?.
+    at wn (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:29:1363)
+    at $n.handleRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6958)
+    at $n.handleAndLogRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async file:///C:/Website-Projects/dse-originals/server/src/modules/auth/auth.routes.js:111:18
+[2026-03-13 09:18:52] [31merror[39m: REGISTER ERROR: 
+Invalid `prisma.user.create()` invocation:
+
+{
+  data: {
+    name: "Jobert Icalina",
+    ~~~~
+    email: "icalina.jobert@dnsc.edu.ph",
+    password: "$2b$10$BxehIMs9EKzk6DJc5y67Qu2bOJDPr9dgk7RBtmz9ztsmiyRCJTkcy",
+    role: "customer",
+    luckyPoints: 0,
+?   id?: String,
+?   emailVerified?: Boolean,
+?   createdAt?: DateTime,
+?   carts?: CartCreateNestedManyWithoutUserInput,
+?   orders?: OrderCreateNestedManyWithoutUserInput,
+?   refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput,
+?   stories?: StoryCreateNestedManyWithoutUserInput
+  }
+}
+
+Unknown argument `name`. Did you mean `role`? Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.user.create()` invocation:
+
+{
+  data: {
+    name: "Jobert Icalina",
+    ~~~~
+    email: "icalina.jobert@dnsc.edu.ph",
+    password: "$2b$10$BxehIMs9EKzk6DJc5y67Qu2bOJDPr9dgk7RBtmz9ztsmiyRCJTkcy",
+    role: "customer",
+    luckyPoints: 0,
+?   id?: String,
+?   emailVerified?: Boolean,
+?   createdAt?: DateTime,
+?   carts?: CartCreateNestedManyWithoutUserInput,
+?   orders?: OrderCreateNestedManyWithoutUserInput,
+?   refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput,
+?   stories?: StoryCreateNestedManyWithoutUserInput
+  }
+}
+
+Unknown argument `name`. Did you mean `role`? Available options are marked with ?.
+    at wn (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:29:1363)
+    at $n.handleRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6958)
+    at $n.handleAndLogRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async file:///C:/Website-Projects/dse-originals/server/src/modules/auth/auth.routes.js:111:18
+[2026-03-13 11:16:04] [31merror[39m: Unhandled error
+[2026-03-13 11:28:29] [31merror[39m: Unhandled error
+[2026-03-14 12:18:37] [31merror[39m: GOOGLE OAUTH ERROR: 
+Invalid `prisma.user.create()` invocation:
+
+{
+  data: {
+    email: "joberticalina604@gmail.com",
+    password: "oauth",
+    role: "customer",
+    luckyPoints: 0,
+    emailVerified: true,
++   name: String
+  }
+}
+
+Argument `name` is missing.
+PrismaClientValidationError: 
+Invalid `prisma.user.create()` invocation:
+
+{
+  data: {
+    email: "joberticalina604@gmail.com",
+    password: "oauth",
+    role: "customer",
+    luckyPoints: 0,
+    emailVerified: true,
++   name: String
+  }
+}
+
+Argument `name` is missing.
+    at wn (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:29:1363)
+    at $n.handleRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6958)
+    at $n.handleAndLogRequestError (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Website-Projects\dse-originals\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async Strategy._verify (file:///C:/Website-Projects/dse-originals/server/src/config/passport.js:38:20)
+[2026-03-14 12:18:37] [31merror[39m: Unhandled error
+[2026-03-17 14:31:03] [31merror[39m: Unhandled error
+[2026-03-17 14:31:03] [31merror[39m: Unhandled error
+[2026-03-17 14:31:16] [31merror[39m: Unhandled error
+[2026-03-17 14:31:17] [31merror[39m: Unhandled error
+[2026-03-17 14:31:17] [31merror[39m: Unhandled error
+[2026-03-17 14:31:17] [31merror[39m: Unhandled error
+[2026-03-17 14:31:17] [31merror[39m: Unhandled error
+[2026-03-17 14:31:17] [31merror[39m: Unhandled error
+[2026-03-18 09:36:41] [31merror[39m: LOGIN ERROR: Cannot read properties of undefined (reading '0')
+TypeError: Cannot read properties of undefined (reading '0')
+    at file:///C:/Website-Projects/dse-originals/server/src/modules/auth/auth.routes.js:153:41
+    at Layer.handleRequest (C:\Website-Projects\dse-originals\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Website-Projects\dse-originals\server\node_modules\router\lib\route.js:157:13)
+    at file:///C:/Website-Projects/dse-originals/server/node_modules/express-rate-limit/dist/index.mjs:918:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Website-Projects/dse-originals/server/node_modules/express-rate-limit/dist/index.mjs:801:5
+[2026-03-18 14:19:10] [31merror[39m: Order expiration worker failed
+[2026-03-19 08:45:58] [31merror[39m: Unhandled error
+[2026-03-19 09:11:47] [31merror[39m: Unhandled error
+[2026-03-19 09:50:05] [31merror[39m: Order expiration worker failed
+[2026-03-19 11:25:30] [31merror[39m: Unhandled error
+[2026-03-19 11:27:46] [31merror[39m: Unhandled error
+[2026-03-19 11:37:31] [31merror[39m: Unhandled error
+[2026-03-19 11:49:08] [31merror[39m: Unhandled error
+[2026-03-19 11:53:18] [31merror[39m: Unhandled error
+[2026-03-19 11:55:46] [31merror[39m: Unhandled error
+[2026-03-19 13:20:18] [31merror[39m: Unhandled error
+[2026-03-19 13:35:52] [31merror[39m: Unhandled error
+[2026-03-19 13:40:37] [31merror[39m: Unhandled error
+[2026-03-19 13:50:05] [31merror[39m: Payment recovery job failed
+[2026-03-19 15:27:41] [31merror[39m: Unhandled error
+[2026-03-19 15:51:12] [31merror[39m: Unhandled error
+[2026-03-19 15:53:10] [31merror[39m: Unhandled error
+[2026-03-19 15:59:37] [31merror[39m: Unhandled error
+[2026-03-19 15:59:37] [31merror[39m: Unhandled error
+[2026-03-19 16:06:41] [31merror[39m: Unhandled error
+[2026-03-19 16:06:41] [31merror[39m: Unhandled error
+[2026-03-19 16:15:16] [31merror[39m: Unhandled error
+[2026-03-19 16:15:17] [31merror[39m: Unhandled error
+[2026-03-19 16:15:26] [31merror[39m: Unhandled error
+[2026-03-19 16:15:27] [31merror[39m: Unhandled error
+[2026-03-19 16:16:23] [31merror[39m: Unhandled error
+[2026-03-19 16:16:23] [31merror[39m: Unhandled error
+[2026-03-19 16:20:18] [31merror[39m: Unhandled error
+[2026-03-19 16:20:18] [31merror[39m: Unhandled error
+[2026-03-21 08:56:26] [31merror[39m: Unhandled error
+[2026-03-21 08:56:26] [31merror[39m: Unhandled error
+[2026-03-21 09:34:16] [31merror[39m: Unhandled error
+[2026-03-21 09:34:17] [31merror[39m: Unhandled error
+[2026-03-21 09:48:50] [31merror[39m: Unhandled error
+[2026-03-21 09:48:50] [31merror[39m: Unhandled error
+[2026-03-21 10:29:28] [31merror[39m: Unhandled error
+[2026-03-21 10:29:29] [31merror[39m: Unhandled error
+[2026-03-21 10:37:43] [31merror[39m: Unhandled error
+[2026-03-21 10:37:43] [31merror[39m: Unhandled error
+[2026-03-21 10:38:31] [31merror[39m: Unhandled error
+[2026-03-21 10:38:31] [31merror[39m: Unhandled error
+[2026-03-21 11:58:34] [31merror[39m: Unhandled error
+[2026-03-21 11:58:34] [31merror[39m: Unhandled error
+[2026-03-21 15:21:04] [31merror[39m: Unhandled error
+[2026-03-21 15:21:05] [31merror[39m: Unhandled error
+[2026-03-21 16:46:27] [31merror[39m: Unhandled error
+[2026-03-21 16:46:27] [31merror[39m: Unhandled error
+[2026-03-23 09:31:04] [31merror[39m: Unhandled error
+[2026-03-23 09:31:04] [31merror[39m: Unhandled error
+[2026-03-23 10:53:07] [31merror[39m: Unhandled error
+[2026-03-23 10:53:08] [31merror[39m: Unhandled error
+[2026-03-23 10:54:05] [31merror[39m: Unhandled error
+[2026-03-23 10:54:05] [31merror[39m: Unhandled error
+[2026-03-23 16:36:05] [31merror[39m: Order expiration worker failed
+[2026-03-23 16:46:05] [31merror[39m: Order expiration worker failed
