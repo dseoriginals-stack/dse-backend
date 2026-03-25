@@ -32,6 +32,11 @@ import { handleXenditWebhook } from "./webhooks/xendit.webhook.js"
 
 const app = express()
 
+console.log("🔥 FINAL CLEAN DEPLOY")
+
+// =========================
+// ✅ FINAL CORS (CORRECT)
+// =========================
 app.use((req, res, next) => {
   const origin = req.headers.origin
 
@@ -42,12 +47,17 @@ app.use((req, res, next) => {
     "https://www.dseoriginals.com",
   ]
 
-  if (allowedOrigins.includes(origin)) {
+  if (origin && allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin)
   }
 
+  // 🔥 REQUIRED
+  res.setHeader("Access-Control-Allow-Credentials", "true")
+
   res.setHeader("Access-Control-Allow-Headers", "*")
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS")
+
+  res.setHeader("Vary", "Origin")
 
   if (req.method === "OPTIONS") {
     return res.sendStatus(200)
@@ -55,8 +65,6 @@ app.use((req, res, next) => {
 
   next()
 })
-
-console.log("🔥 FINAL CLEAN DEPLOY")
 
 app.set("trust proxy", 1)
 
