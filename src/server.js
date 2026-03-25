@@ -26,7 +26,7 @@ import userRoutes from "./modules/user/user.routes.js"
 
 // Workers / Jobs
 import { startInventoryWorker } from "./workers/inventoryWorker.js"
-import "./jobs/cron.js"
+// import "./jobs/cron.js"
 
 // Webhooks
 import { handleXenditWebhook } from "./webhooks/xendit.webhook.js"
@@ -142,7 +142,7 @@ app.use(errorHandler)
 // WORKERS
 // =========================
 logger.info("Starting background workers...")
-startInventoryWorker()
+// startInventoryWorker()
 
 // =========================
 // START SERVER
