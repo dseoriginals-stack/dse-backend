@@ -401,3 +401,9 @@ TypeError: Cannot read properties of undefined (reading '0')
 [2026-03-25 13:40:05] [31merror[39m: Order expiration worker failed
 [2026-03-25 13:49:10] [31merror[39m: Order expiration worker failed
 [2026-03-25 13:56:05] [31merror[39m: Order expiration worker failed
+[2026-03-25 14:02:10] [31merror[39m: Order expiration worker failed
+[2026-03-25 14:10:10] [31merror[39m: Order expiration worker failed
+[2026-03-25 14:13:05] [31merror[39m: Order expiration worker failed
+[2026-03-25 14:16:05] [31merror[39m: Order expiration worker failed
+[2026-03-25 14:17:00] [31merror[39m: Order expiration worker failed
+[2026-03-25 15:38:10] [31merror[39m: Order expiration worker failed

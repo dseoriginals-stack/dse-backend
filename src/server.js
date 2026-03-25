@@ -6,6 +6,7 @@ import cors from "cors"
 import helmet from "helmet"
 import cookieParser from "cookie-parser"
 import path from "path"
+import { fileURLToPath } from "url"
 
 import logger from "./config/logger.js"
 import passport from "./config/passport.js"
@@ -24,10 +25,6 @@ import reviewRoutes from "./modules/review/review.routes.js"
 import analyticsRoutes from "./modules/analytics/analytics.routes.js"
 import userRoutes from "./modules/user/user.routes.js"
 
-// ❌ KEEP DISABLED FOR NOW (avoid timeout)
-// import { startInventoryWorker } from "./workers/inventoryWorker.js"
-// import "./jobs/cron.js"
-
 // Webhooks
 import { handleXenditWebhook } from "./webhooks/xendit.webhook.js"
 
@@ -38,7 +35,13 @@ console.log("🚀 STARTING SERVER...")
 app.set("trust proxy", 1)
 
 // =========================
-// 🔥 DEBUG ORIGIN (CRITICAL)
+// ✅ FIXED __dirname (CRITICAL)
+// =========================
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+// =========================
+// DEBUG ORIGIN
 // =========================
 app.use((req, res, next) => {
   console.log("🌍 REQUEST ORIGIN:", req.headers.origin)
@@ -46,11 +49,11 @@ app.use((req, res, next) => {
 })
 
 // =========================
-// ✅ TEMP WORKING CORS (ALLOW ALL)
+// CORS
 // =========================
 app.use(
   cors({
-    origin: true, // 🔥 allow all origins dynamically
+    origin: true,
     credentials: true,
   })
 )
@@ -61,11 +64,11 @@ app.use(
 app.use(helmet())
 
 // =========================
-// STATIC FILES
+// ✅ STATIC FILES (FIXED)
 // =========================
 app.use(
   "/uploads",
-  express.static(path.join(process.cwd(), "uploads"))
+  express.static(path.join(__dirname, "uploads"))
 )
 
 // =========================
@@ -122,7 +125,7 @@ app.get("/api/health", (_req, res) => {
 app.use(errorHandler)
 
 // =========================
-// 🚀 START SERVER
+// START SERVER
 // =========================
 const PORT = process.env.PORT || 10000
 
