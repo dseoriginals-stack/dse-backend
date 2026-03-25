@@ -24,8 +24,8 @@ import reviewRoutes from "./modules/review/review.routes.js"
 import analyticsRoutes from "./modules/analytics/analytics.routes.js"
 import userRoutes from "./modules/user/user.routes.js"
 
-// Workers / Jobs
-import { startInventoryWorker } from "./workers/inventoryWorker.js"
+// ❌ TEMP DISABLED (CAUSES RENDER TIMEOUT)
+// import { startInventoryWorker } from "./workers/inventoryWorker.js"
 // import "./jobs/cron.js"
 
 // Webhooks
@@ -33,34 +33,16 @@ import { handleXenditWebhook } from "./webhooks/xendit.webhook.js"
 
 const app = express()
 
-console.log("🔥 FINAL STABLE DEPLOY")
+console.log("🚀 STARTING SERVER...")
 
 app.set("trust proxy", 1)
 
 // =========================
-// ✅ CORS (FINAL CORRECT)
+// ✅ CORS (SAFE VERSION)
 // =========================
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://dse-originals-client.vercel.app",
-  "https://dseoriginals.com",
-  "https://www.dseoriginals.com",
-]
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // allow non-browser requests (like curl, server-side)
-      if (!origin) return callback(null, true)
-
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true)
-      } else {
-        return callback(new Error("Not allowed by CORS"))
-      }
-    },
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    origin: "*", // 🔥 TEMP: allow all to confirm working
   })
 )
 
@@ -78,7 +60,7 @@ app.use(
 )
 
 // =========================
-// WEBHOOK RAW (BEFORE JSON)
+// WEBHOOK RAW
 // =========================
 app.use("/webhooks/xendit", express.raw({ type: "*/*" }))
 app.use("/api/orders/webhook", express.raw({ type: "*/*" }))
@@ -110,25 +92,17 @@ app.use("/api/categories", categoryRoutes)
 app.use("/api/admin", adminRoutes)
 
 // =========================
-// WEBHOOK HANDLER
+// WEBHOOK
 // =========================
 app.post("/webhooks/xendit", handleXenditWebhook)
 
 // =========================
-// HEALTH CHECKS
+// HEALTH CHECK
 // =========================
 app.get("/api/health", (_req, res) => {
   res.json({
     status: "OK",
     service: "DSE Originals API",
-    timestamp: new Date(),
-  })
-})
-
-app.get("/health", (_req, res) => {
-  res.status(200).json({
-    status: "ok",
-    service: "DSE API",
     timestamp: new Date(),
   })
 })
@@ -139,16 +113,10 @@ app.get("/health", (_req, res) => {
 app.use(errorHandler)
 
 // =========================
-// WORKERS
+// 🚀 START SERVER FIRST (CRITICAL)
 // =========================
-logger.info("Starting background workers...")
-// startInventoryWorker()
-
-// =========================
-// START SERVER
-// =========================
-const PORT = Number(process.env.PORT) || 5000
+const PORT = process.env.PORT || 10000
 
 app.listen(PORT, () => {
-  logger.info(`🚀 Server running on port ${PORT}`)
+  console.log("🔥 SERVER RUNNING ON PORT", PORT)
 })
