@@ -66,21 +66,6 @@ app.set("trust proxy", 1)
 app.use(helmet())
 
 // =========================
-// ✅ FINAL CORS CONFIG (CLEAN)
-// =========================
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://dse-originals-client.vercel.app",
-    ],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: false, // 🚨 IMPORTANT: no cookies
-  })
-)
-
-// =========================
 // STATIC FILES
 // =========================
 app.use(
