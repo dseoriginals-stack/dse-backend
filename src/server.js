@@ -24,7 +24,7 @@ import reviewRoutes from "./modules/review/review.routes.js"
 import analyticsRoutes from "./modules/analytics/analytics.routes.js"
 import userRoutes from "./modules/user/user.routes.js"
 
-// ❌ TEMP DISABLED (CAUSES RENDER TIMEOUT)
+// ❌ KEEP DISABLED FOR NOW (avoid timeout)
 // import { startInventoryWorker } from "./workers/inventoryWorker.js"
 // import "./jobs/cron.js"
 
@@ -38,11 +38,20 @@ console.log("🚀 STARTING SERVER...")
 app.set("trust proxy", 1)
 
 // =========================
-// ✅ CORS (SAFE VERSION)
+// 🔥 DEBUG ORIGIN (CRITICAL)
+// =========================
+app.use((req, res, next) => {
+  console.log("🌍 REQUEST ORIGIN:", req.headers.origin)
+  next()
+})
+
+// =========================
+// ✅ TEMP WORKING CORS (ALLOW ALL)
 // =========================
 app.use(
   cors({
-    origin: "*", // 🔥 TEMP: allow all to confirm working
+    origin: true, // 🔥 allow all origins dynamically
+    credentials: true,
   })
 )
 
@@ -113,7 +122,7 @@ app.get("/api/health", (_req, res) => {
 app.use(errorHandler)
 
 // =========================
-// 🚀 START SERVER FIRST (CRITICAL)
+// 🚀 START SERVER
 // =========================
 const PORT = process.env.PORT || 10000
 
