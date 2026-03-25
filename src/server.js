@@ -2,6 +2,7 @@ import dotenv from "dotenv"
 dotenv.config()
 
 import express from "express"
+import cors from "cors"
 import helmet from "helmet"
 import cookieParser from "cookie-parser"
 import path from "path"
@@ -32,41 +33,36 @@ import { handleXenditWebhook } from "./webhooks/xendit.webhook.js"
 
 const app = express()
 
-console.log("🔥 FINAL CLEAN DEPLOY")
-
-// =========================
-// ✅ FINAL CORS (CORRECT)
-// =========================
-app.use((req, res, next) => {
-  const origin = req.headers.origin
-
-  const allowedOrigins = [
-    "http://localhost:3000",
-    "https://dse-originals-client.vercel.app",
-    "https://dseoriginals.com",
-    "https://www.dseoriginals.com",
-  ]
-
-  if (origin && allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin)
-  }
-
-  // 🔥 REQUIRED
-  res.setHeader("Access-Control-Allow-Credentials", "true")
-
-  res.setHeader("Access-Control-Allow-Headers", "*")
-  res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS")
-
-  res.setHeader("Vary", "Origin")
-
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200)
-  }
-
-  next()
-})
+console.log("🔥 FINAL STABLE DEPLOY")
 
 app.set("trust proxy", 1)
+
+// =========================
+// ✅ CORS (FINAL CORRECT)
+// =========================
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://dse-originals-client.vercel.app",
+  "https://dseoriginals.com",
+  "https://www.dseoriginals.com",
+]
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // allow non-browser requests (like curl, server-side)
+      if (!origin) return callback(null, true)
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true)
+      } else {
+        return callback(new Error("Not allowed by CORS"))
+      }
+    },
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+)
 
 // =========================
 // SECURITY
