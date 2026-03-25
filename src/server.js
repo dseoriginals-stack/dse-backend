@@ -35,8 +35,17 @@ const app = express()
 app.use((req, res, next) => {
   const origin = req.headers.origin
 
-  // allow all origins (safe since no credentials)
-  res.setHeader("Access-Control-Allow-Origin", origin || "*")
+  const allowedOrigins = [
+    "http://localhost:3000",
+    "https://dse-originals-client.vercel.app",
+    "https://dseoriginals.com",
+    "https://www.dseoriginals.com",
+  ]
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin)
+  }
+
   res.setHeader("Access-Control-Allow-Headers", "*")
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS")
 
