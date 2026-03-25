@@ -33,82 +33,32 @@ import { handleXenditWebhook } from "./webhooks/xendit.webhook.js"
 
 const app = express()
 
-console.log("🔥 NEW VERSION DEPLOYED")
+console.log("🔥 FINAL CLEAN DEPLOY")
 
-// ✅ CORS MUST BE FIRST
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://dse-originals-client.vercel.app",
-]
-
-app.use((req, res, next) => {
-  const origin = req.headers.origin
-
-  if (
-    allowedOrigins.includes(origin) ||
-    (origin && origin.includes(".vercel.app"))
-  ) {
-    res.setHeader("Access-Control-Allow-Origin", origin)
-  }
-
-  res.setHeader("Access-Control-Allow-Credentials", "true")
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  )
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
-  )
-
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(204)
-  }
-
-  next()
-})
-
-// THEN everything else
 app.set("trust proxy", 1)
+
+// =========================
+// SECURITY
+// =========================
 app.use(helmet())
 
-app.use((req, res, next) => {
-  const origin = req.headers.origin
-
-  if (
-    allowedOrigins.includes(origin) ||
-    (origin && origin.includes(".vercel.app"))
-  ) {
-    res.setHeader("Access-Control-Allow-Origin", origin)
-  }
-
-  res.setHeader("Access-Control-Allow-Credentials", "true")
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  )
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
-  )
-
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(204)
-  }
-
-  next()
-})
+// =========================
+// ✅ FINAL CORS CONFIG (CLEAN)
+// =========================
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://dse-originals-client.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: false, // 🚨 IMPORTANT: no cookies
+  })
+)
 
 // =========================
-// DEBUG LOGGER
-// =========================
-app.use((req, res, next) => {
-  console.log(`🌐 ${req.method} ${req.url}`)
-  next()
-})
-
-// =========================
-// STATIC FILES (UPLOADS)
+// STATIC FILES
 // =========================
 app.use(
   "/uploads",
