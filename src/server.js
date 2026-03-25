@@ -2,7 +2,6 @@ import dotenv from "dotenv"
 dotenv.config()
 
 import express from "express"
-import cors from "cors"
 import helmet from "helmet"
 import cookieParser from "cookie-parser"
 import path from "path"
@@ -32,6 +31,21 @@ import "./jobs/cron.js"
 import { handleXenditWebhook } from "./webhooks/xendit.webhook.js"
 
 const app = express()
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin
+
+  // allow all origins (safe since no credentials)
+  res.setHeader("Access-Control-Allow-Origin", origin || "*")
+  res.setHeader("Access-Control-Allow-Headers", "*")
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS")
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200)
+  }
+
+  next()
+})
 
 console.log("🔥 FINAL CLEAN DEPLOY")
 
