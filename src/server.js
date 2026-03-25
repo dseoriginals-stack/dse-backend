@@ -35,20 +35,42 @@ const app = express()
 
 console.log("🔥 NEW VERSION DEPLOYED")
 
-app.set("trust proxy", 1)
-
-// =========================
-// SECURITY
-// =========================
-app.use(helmet())
-
-// =========================
-// ✅ FINAL CORS FIX (NO MORE BLOCKING)
-// =========================
+// ✅ CORS MUST BE FIRST
 const allowedOrigins = [
   "http://localhost:3000",
   "https://dse-originals-client.vercel.app",
 ]
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin
+
+  if (
+    allowedOrigins.includes(origin) ||
+    (origin && origin.includes(".vercel.app"))
+  ) {
+    res.setHeader("Access-Control-Allow-Origin", origin)
+  }
+
+  res.setHeader("Access-Control-Allow-Credentials", "true")
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  )
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+  )
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204)
+  }
+
+  next()
+})
+
+// THEN everything else
+app.set("trust proxy", 1)
+app.use(helmet())
 
 app.use((req, res, next) => {
   const origin = req.headers.origin
