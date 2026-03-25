@@ -33,30 +33,75 @@ import { handleXenditWebhook } from "./webhooks/xendit.webhook.js"
 
 const app = express()
 
+console.log("🔥 NEW VERSION DEPLOYED")
+
 app.set("trust proxy", 1)
 
-// ✅ SECURITY
+// =========================
+// SECURITY
+// =========================
 app.use(helmet())
 
-// ✅ CORS (FIXED FOR PRODUCTION)
+// =========================
+// ✅ FINAL CORS FIX (NO MORE BLOCKING)
+// =========================
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://dse-originals-client.vercel.app",
+]
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin
+
+  if (
+    allowedOrigins.includes(origin) ||
+    (origin && origin.includes(".vercel.app"))
+  ) {
+    res.setHeader("Access-Control-Allow-Origin", origin)
+  }
+
+  res.setHeader("Access-Control-Allow-Credentials", "true")
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  )
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+  )
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204)
+  }
+
+  next()
+})
+
+// =========================
+// DEBUG LOGGER
+// =========================
+app.use((req, res, next) => {
+  console.log(`🌐 ${req.method} ${req.url}`)
+  next()
+})
+
+// =========================
+// STATIC FILES (UPLOADS)
+// =========================
 app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://dse-originals-client-3id0uq3jv-dseoriginals-5465s-projects.vercel.app"
-    ],
-    credentials: true
-  })
+  "/uploads",
+  express.static(path.join(process.cwd(), "uploads"))
 )
 
-// ✅ STATIC FILES (MUST BE EARLY)
-app.use("/uploads", express.static(path.resolve("uploads")))
-
-// ✅ WEBHOOK RAW (BEFORE JSON)
+// =========================
+// WEBHOOK RAW (BEFORE JSON)
+// =========================
 app.use("/webhooks/xendit", express.raw({ type: "*/*" }))
 app.use("/api/orders/webhook", express.raw({ type: "*/*" }))
 
-// ✅ PARSERS
+// =========================
+// PARSERS
+// =========================
 app.use(express.json({ limit: "1mb" }))
 app.use(cookieParser())
 
@@ -64,7 +109,9 @@ app.use(passport.initialize())
 
 logger.info("Loading API routes...")
 
-// Routes
+// =========================
+// ROUTES
+// =========================
 app.use("/api/user", userRoutes)
 app.use("/api/analytics", analyticsRoutes)
 app.use("/api/reviews", reviewRoutes)
@@ -78,15 +125,19 @@ app.use("/api/wishlist", wishlistRoutes)
 app.use("/api/categories", categoryRoutes)
 app.use("/api/admin", adminRoutes)
 
-// Webhook handler
+// =========================
+// WEBHOOK HANDLER
+// =========================
 app.post("/webhooks/xendit", handleXenditWebhook)
 
-// Health checks
+// =========================
+// HEALTH CHECKS
+// =========================
 app.get("/api/health", (_req, res) => {
   res.json({
     status: "OK",
     service: "DSE Originals API",
-    timestamp: new Date()
+    timestamp: new Date(),
   })
 })
 
@@ -94,19 +145,26 @@ app.get("/health", (_req, res) => {
   res.status(200).json({
     status: "ok",
     service: "DSE API",
-    timestamp: new Date()
+    timestamp: new Date(),
   })
 })
 
-// Error handler (LAST)
+// =========================
+// ERROR HANDLER
+// =========================
 app.use(errorHandler)
 
-// Workers
+// =========================
+// WORKERS
+// =========================
 logger.info("Starting background workers...")
 startInventoryWorker()
 
+// =========================
+// START SERVER
+// =========================
 const PORT = Number(process.env.PORT) || 5000
 
 app.listen(PORT, () => {
-  logger.info(`Server running on port ${PORT}`)
+  logger.info(`🚀 Server running on port ${PORT}`)
 })
